@@ -37,4 +37,12 @@ EXPOSE 80
 
 # 启动nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
+
+
+
+docker build --build-arg http_proxy=http://192.168.197.18:7890/ --build-arg https_proxy=http://192.168.1.1:7890/ -t nginx:vue .
 ```
