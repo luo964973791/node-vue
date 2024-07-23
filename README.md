@@ -29,6 +29,11 @@ RUN npm install && npm run build
 # Stage 2: Serve the app with nginx
 FROM nginx:alpine
 
+# 更新并安装 net-tools 和 tcpdump，然后清理缓存
+RUN apk update && \
+    apk add --no-cache net-tools tcpdump && \
+    rm -rf /var/cache/apk/*
+
 # 复制构建好的文件到nginx的html目录
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
