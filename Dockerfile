@@ -8,8 +8,7 @@ WORKDIR /app
 COPY . .
 
 # 安装依赖并构建项目
-RUN npm install
-RUN npm run build
+RUN npm install && npm run build
 
 # Stage 2: Serve the app with nginx
 FROM nginx:alpine
