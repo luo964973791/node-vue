@@ -1,6 +1,6 @@
 <?php
 // 数据库信息
-$host = '127.0.0.1'; // 数据库主机名
+$host = 'localhost'; // 数据库主机名
 $dbname = 'your_database'; // 数据库名
 $username = 'your_username'; // 数据库用户名
 $password = 'your_password'; // 数据库密码
