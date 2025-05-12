@@ -17,7 +17,7 @@ FROM nginx:alpine
 RUN apk update && \
     apk add --no-cache net-tools tcpdump && \
     rm -rf /var/cache/apk/*
-    
+
 # 复制构建好的文件到nginx的html目录
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
