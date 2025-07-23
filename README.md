@@ -38,7 +38,7 @@ RUN apk update && \
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 # 暴露端口
-EXPOSE 80
+EXPOSE 80 443
 
 # 启动nginx
 CMD ["nginx", "-g", "daemon off;"]
