@@ -14,15 +14,23 @@ RUN npm install && npm run build
 FROM nginx:alpine
 
 # 更新并安装 net-tools 和 tcpdump，然后清理缓存
-RUN apk update && \
-    apk add --no-cache net-tools tcpdump && \
-    rm -rf /var/cache/apk/*
+
+RUN apk update && apk add --no-cache \
+    tcpdump \
+    busybox-extras \
+    bind-tools \
+    git \
+    tzdata \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone \
+    && rm -rf /var/cache/apk/*
+ENV TZ=Asia/Shanghai
 
 # 复制构建好的文件到nginx的html目录
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 # 暴露端口
-EXPOSE 80
+EXPOSE 80 443
 
 # 启动nginx
 CMD ["nginx", "-g", "daemon off;"]

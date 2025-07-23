@@ -50,5 +50,5 @@ CMD ["nginx", "-g", "daemon off;"]
 
 
 docker build --build-arg http_proxy=http://192.168.1.1:7890/ --build-arg https_proxy=http://192.168.1.1:7890/ -t nginx:vue .
-docker run -it -d -p 80:80 -e TZ=Asia/Shanghai --name vue nginx:vue
+docker run -it -d -p 80:80 --name vue nginx:vue
 ```
