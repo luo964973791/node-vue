@@ -1,5 +1,5 @@
 # Stage 1: Build the Vue.js app
-FROM node:alpine AS build-stage
+FROM node:22-alpine AS build-stage
 
 # 设置工作目录
 WORKDIR /app
